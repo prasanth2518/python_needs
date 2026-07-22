@@ -1,0 +1,111 @@
+
+API:- https://apigatewayextdev.hms.com/maestro-api/ext/v1/createcase/ocr
+
+
+Request Payload
+=====================
+
+{
+  "context_code": "CTSCASAZ",
+  "member_id": "MEM-123456",
+  "case_type": "WC",
+  "case_source": "WEB",
+  "case_priority": "HIGH",
+  "case_status": "OPEN",
+  "case_stage": "INTAKE",
+  "incident_date": "2024-03-20",
+  "case_open_date": "2024-03-22",
+  "case_close_date": null,
+  "service_from_date": "2024-03-20",
+  "service_to_date": "2024-03-31",
+  "insurance_claim_number": "ICN-998877",
+  "county": "ALBANY"
+}
+
+
+Request Notes
+==================
+API Request Type:- POST
+
+Mandatory Fields
+--------------------
+
+context_code
+member_id
+case_type
+case_source
+case_priority
+case_status
+case_stage
+incident_date
+case_open_date
+county
+
+Optional Fields
+------------------
+case_close_date
+service_from_date
+service_to_date
+insurance_claim_number
+
+Validation Rules
+--------------------
+All dates must be in YYYY-MM-DD format.
+member_id must exist in Maestro.
+case_type, case_source, case_priority, case_status, case_stage, and county must be valid values returned from:POST https://apigatewayextdev.hms.com/maestro-api/ext/v1/case_fields/ocr
+
+
+Response Payload
+=======================
+
+Successful Case Creation
+-------------------------------
+
+{
+  "status": "success",
+  "case_id": "CASE-789456",
+  "member_id": "MEM-123456",
+  "message": "Case created successfully."
+}
+
+Validation Error
+---------------------------
+
+{
+  "status": "failure",
+  "error_code": "VALIDATION_ERROR",
+  "message": "county is required."
+}
+
+Member Not Found
+----------------------------
+
+{
+  "status": "failure",
+  "error_code": "MEMBER_NOT_FOUND",
+  "message": "No member found for member_id MEM-123456."
+}
+
+Invalid Dropdown Value
+------------------------------
+
+{
+  "status": "failure",
+  "error_code": "INVALID_FIELD_VALUE",
+  "message": "Invalid value provided for case_type."
+}
+
+
+
+
+
+Response Notes
+===================
+status = success indicates the case was successfully created.
+case_id is the Maestro-generated unique case identifier.
+status = failure indicates the request could not be processed.
+error_code provides the reason for the failure.
+All dropdown-based fields must contain valid values configured in Maestro.
+
+
+

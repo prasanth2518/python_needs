@@ -1,0 +1,181 @@
+API:-  https://apigatewayextdev.hms.com/maestro-api/ext/v1/casefields/ocr
+
+Request_Payload:
+======================
+
+{
+    "context_code": "CTSCASAZ",
+    "field_names": [
+        "marital_status",
+        "gender",
+        "case_type",
+        "county",
+        "case_source",
+        "case_priority",
+        "case_status",
+        "case_stage"
+    ]
+}
+
+
+Request Notes
+---------------------
+
+API Request Type: POST
+context_code → Mandatory
+field_names → Mandatory
+One or more field names can be provided.
+Only the requested fields will be returned in the response.
+Field names are case-sensitive and should match Maestro configuration values.
+
+
+Response Payload:
+=======================
+
+Success Response
+-------------------------
+
+{
+    "status": "success",
+    "dropdown_values": {
+        "marital_status": [
+            {
+                "code": "S",
+                "description": "Single"
+            },
+            {
+                "code": "M",
+                "description": "Married"
+            },
+            {
+                "code": "D",
+                "description": "Divorced"
+            },
+            {
+                "code": "W",
+                "description": "Widowed"
+            }
+        ],
+        "gender": [
+            {
+                "code": "M",
+                "description": "Male"
+            },
+            {
+                "code": "F",
+                "description": "Female"
+            }
+        ],
+        "case_type": [
+            {
+                "code": "WC",
+                "description": "Workers Compensation"
+            },
+            {
+                "code": "NF",
+                "description": "No Fault"
+            }
+        ],
+        "county": [
+            {
+                "code": "001",
+                "description": "Albany"
+            },
+            {
+                "code": "005",
+                "description": "Bronx"
+            }
+        ],
+        "case_source": [
+            {
+                "code": "TEL",
+                "description": "Telephone"
+            },
+            {
+                "code": "WEB",
+                "description": "Web Portal"
+            }
+        ],
+        "case_priority": [
+            {
+                "code": "H",
+                "description": "High"
+            },
+            {
+                "code": "M",
+                "description": "Medium"
+            },
+            {
+                "code": "L",
+                "description": "Low"
+            }
+        ],
+        "case_status": [
+            {
+                "code": "OPEN",
+                "description": "Open"
+            },
+            {
+                "code": "CLOSED",
+                "description": "Closed"
+            }
+        ],
+        "case_stage": [
+            {
+                "code": "INTAKE",
+                "description": "Intake"
+            },
+            {
+                "code": "REVIEW",
+                "description": "Review"
+            },
+            {
+                "code": "RESOLUTION",
+                "description": "Resolution"
+            }
+        ]
+    }
+}
+
+
+Partial Success Response
+------------------------------
+
+{
+    "status": "partial_success",
+    "dropdown_values": {
+        "gender": [
+            {
+                "code": "M",
+                "description": "Male"
+            },
+            {
+                "code": "F",
+                "description": "Female"
+            }
+        ]
+    },
+    "invalid_fields": [
+        "case_stage_x",
+        "county_x"
+    ]
+}
+
+No Data Found Response
+-----------------------------
+
+{
+    "status": "no_data",
+    "dropdown_values": {}
+}
+
+Response Notes
+===================
+status = success → All requested fields returned successfully.
+status = partial_success → Some requested fields were valid while others were not.
+status = no_data → No dropdown data found for the requested fields.
+Each dropdown value contains:
+code → Value to be stored in Maestro.
+description → User-friendly display value shown in the UI.
+
+
