@@ -1,0 +1,115 @@
+API: - https://apigatewayextdev.hms.com/maestro-api/ext/v1/membersearch/ocr
+
+Request_Payload:
+======================
+
+
+{
+  "context_code": "CTSCASAZ",
+  "client_code": "CLIENT_001",
+  "filter_obj": {
+    "member_id": "MEM-123456",
+    "ma_number": "MA-445566",
+    "first_name": "John",
+    "middle_name": "A",
+    "last_name": "Doe",
+    "ssn": {
+      "full": null,
+      "last_6": "123456",
+      "last_4": "3456"
+    },
+    "date_of_birth": "1985-07-21",
+    "death_date": null,
+    "gender": "M",
+    "marital_status": "ACTIVE"
+    
+  }
+}
+
+Request Notes
+==================
+
+API Request Type: POST
+context_code,client_code → Mandatory
+All fields in filter_obj → Optional 
+Partial SSN searches supported
+Dates must be in YYYY-MM-DD format
+
+
+Response_body:
+===============
+
+single match
+--------------
+
+{
+  "match_status": "single_match",
+  "members": [
+    {
+      "indv_id": "MEM-789456",
+      "context_code": "CTSCASAZ",
+      "client_code": "CLIENT_001",
+      "ma_number": "MA-445566",
+      "first_name": "John",
+      "middle_name": "A",
+      "last_name": "Smith",
+      "ssn": "***-**-6789",
+      "date_of_birth": "1985-06-15",
+      "death_date": null,
+      "gender": "M",
+      "member_status": "ACTIVE",
+      "marital_status": "MARRIED",
+      "county":"DLA"
+          }
+  ]
+}
+
+multiple_match:
+--------------
+
+{
+    "match_status": "multiple_members",
+    "members": [
+        {
+            "indv_id": "MEM-456123",
+            "context_code": "CTSCASAZ",
+            "client_code": "CLIENT_001",
+            "ma_number": "MA-998877",
+            "first_name": "John",
+            "middle_name": null,
+            "last_name": "Smith",
+            "ssn": "***-**-1234",
+            "date_of_birth": "1985-06-15",
+            "gender": "M",
+            "member_status": "ACTIVE",
+            "marital_status": "MARRIED",
+	    "county":"DLAS"
+
+                   },
+        {
+            "indv_id": "MEM-456789",
+            "context_code": "CTSCASAZ",
+            "client_code": "CLIENT_002",
+            "ma_number": "MA-223344",
+            "first_name": "Jonathan",
+            "middle_name": null,
+            "last_name": "Smith",
+            "ssn": "***-**-5678",
+            "date_of_birth": "1986-07-20",
+            "gender": "M",
+            "member_status": "ACTIVE",
+            "marital_status": "SINGLE",
+	    "county":"DLAS"
+        }
+    ]
+}
+
+no_match:
+=========
+
+{
+    "match_status": "no_match",
+    "members": []
+}
+
+
