@@ -1,0 +1,764 @@
+
+"BCEE": {
+  "docList": [
+    {
+      "uploadedDocument": {
+        "documentId": "DOC-001",
+        "fileName": "birth_certificate_pass.pdf",
+        "fileRef": {
+          "fileId": "birth_certificate_pass"
+        },
+        "metadata": {
+          "mimeType": "application/pdf",
+          "sizeBytes": 524288
+        },
+        "uploadTime": {
+          "asOf": "2026-08-12T10:00:00-07:00",
+          "timezone": "Pacific Daylight Time"
+        }
+      },
+      "result": {
+        "classifications": [
+          {
+            "documentType": "BIRTH_CERTIFICATE",
+            "reasoning": "Official birth certificate showing child name, date of birth, parent names, and state certification.",
+            "matchedDependent": "DEP-002",
+            "pageRange": [
+              1
+            ],
+            "verificationStatus": "PASS",
+            "verificationCode": "1000",
+            "validationDetails": {
+              "childName": {
+                "extracted": "Tommy",
+                "DEP-002": {
+                  "submitted": "Tommy",
+                  "field_match_status": "PASS"
+                }
+              },
+              "childDob": {
+                "extracted": "2015-08-22",
+                "DEP-002": {
+                  "submitted": "2015-08-22",
+                  "field_match_status": "PASS"
+                }
+              },
+              "parentNames": {
+                "extracted": [
+                  "John",
+                  "Jane"
+                ],
+                "comparisons": {
+                  "submitter": {
+                    "submitted": "John",
+                    "matchedExtracted": "John",
+                    "field_match_status": "PASS"
+                  },
+                  "spouseOrDp": {
+                    "submitted": "Jane",
+                    "matchedExtracted": "Jane",
+                    "field_match_status": "PASS"
+                  }
+                },
+                "matchedAgainst": [
+                  "submitter",
+                  "spouseOrDp"
+                ],
+                "field_match_status": "PASS"
+              },
+              "officialSigned": {
+                "extracted": "yes",
+                "reasoning": "The certificate shows a visible state registrar certification and official signature.",
+                "field_match_status": "PASS"
+              }
+            },
+            "comment": "All standardized checks passed for BIRTH_CERTIFICATE."
+          }
+        ]
+      }
+    }
+  ]
+},
+
+"BC": {
+  "docList": [
+    {
+      "uploadedDocument": {
+        "documentId": "DOC-001",
+        "fileName": "birth_certificate_pass.pdf",
+        "fileRef": {
+          "fileId": "birth_certificate_pass"
+        },
+        "metadata": {
+          "mimeType": "application/pdf",
+          "sizeBytes": 524288
+        },
+        "uploadTime": {
+          "asOf": "2026-08-12T10:00:00-07:00",
+          "timezone": "Pacific Daylight Time"
+        }
+      },
+      "result": {
+        "classifications": [
+          {
+            "documentType": "BIRTH_CERTIFICATE",
+            "reasoning": "Official birth certificate showing child name, date of birth, parent names, and state certification.",
+            "matchedDependent": "DEP-002",
+            "pageRange": [
+              1
+            ],
+            "verificationStatus": "PASS",
+            "verificationCode": "1000",
+            "validationDetails": {
+              "childName": {
+                "extracted": "Tommy",
+                "DEP-002": {
+                  "submitted": "Tommy",
+                  "field_match_status": "PASS"
+                }
+              },
+              "childDob": {
+                "extracted": "2015-08-22",
+                "DEP-002": {
+                  "submitted": "2015-08-22",
+                  "field_match_status": "PASS"
+                }
+              },
+              "parentNames": {
+                "extracted": [
+                  "Jane"
+                ],
+                "comparisons": {
+                  "submitter": {
+                    "submitted": "John",
+                    "matchedExtracted": null,
+                    "field_match_status": "FAIL"
+                  },
+                  "spouseOrDp": {
+                    "submitted": "Jane",
+                    "matchedExtracted": "Jane",
+                    "field_match_status": "PASS"
+                  }
+                },
+                "matchedAgainst": [
+                  "spouseOrDp"
+                ],
+                "field_match_status": "PASS"
+              },
+              "officialSigned": {
+                "extracted": "yes",
+                "reasoning": "The certificate shows a visible state registrar certification and official signature.",
+                "field_match_status": "PASS"
+              }
+            },
+            "comment": "All standardized checks passed for BIRTH_CERTIFICATE."
+          }
+        ]
+      }
+    }
+  ]
+},
+
+"IBC": {
+  "docList": [
+    {
+      "uploadedDocument": {
+        "documentId": "DOC-002",
+        "fileName": "birth_certificate_fail.pdf",
+        "fileRef": {
+          "fileId": "birth_certificate_fail"
+        },
+        "metadata": {
+          "mimeType": "application/pdf",
+          "sizeBytes": 532480
+        },
+        "uploadTime": {
+          "asOf": "2026-08-12T10:05:00-07:00",
+          "timezone": "Pacific Daylight Time"
+        }
+      },
+      "result": {
+        "classifications": [
+          {
+            "documentType": "BIRTH_CERTIFICATE",
+            "reasoning": "Official birth certificate showing a different child and unrelated parents.",
+            "matchedDependent": "DEP-003",
+            "pageRange": [
+              1
+            ],
+            "verificationStatus": "FAIL",
+            "verificationCode": "2000",
+            "validationDetails": {
+              "childName": {
+                "extracted": "George",
+                "DEP-003": {
+                  "submitted": "Lucas",
+                  "field_match_status": "FAIL"
+                }
+              },
+              "childDob": {
+                "extracted": "2018-08-22",
+                "DEP-003": {
+                  "submitted": "2017-01-15",
+                  "field_match_status": "FAIL"
+                }
+              },
+              "parentNames": {
+                "extracted": [
+                  "Mary",
+                  "Robert"
+                ],
+                "comparisons": {
+                  "submitter": {
+                    "submitted": "John",
+                    "matchedExtracted": null,
+                    "field_match_status": "FAIL"
+                  },
+                  "spouseOrDp": {
+                    "submitted": "Jane",
+                    "matchedExtracted": null,
+                    "field_match_status": "FAIL"
+                  }
+                },
+                "matchedAgainst": [],
+                "field_match_status": "FAIL"
+              },
+              "officialSigned": {
+                "extracted": "yes",
+                "reasoning": "The document appears state-certified, but the child and parent information do not match the payload.",
+                "field_match_status": "PASS"
+              }
+            },
+            "comment": "Standardized verification failed for BIRTH_CERTIFICATE because childName, childDob, parentNames did not match."
+          }
+        ]
+      }
+    }
+  ]
+},
+
+"MC": {
+  "docList": [
+    {
+      "uploadedDocument": {
+        "documentId": "DOC-003",
+        "fileName": "marriage_certificate_pass.pdf",
+        "fileRef": {
+          "fileId": "marriage_certificate_pass"
+        },
+        "metadata": {
+          "mimeType": "application/pdf",
+          "sizeBytes": 487424
+        },
+        "uploadTime": {
+          "asOf": "2026-08-12T10:10:00-07:00",
+          "timezone": "Pacific Daylight Time"
+        }
+      },
+      "result": {
+        "classifications": [
+          {
+            "documentType": "MARRIAGE_CERTIFICATE",
+            "reasoning": "Marriage certificate showing both parties, ceremony date, and officiant signature.",
+            "matchedDependent": "DEP-001",
+            "pageRange": [
+              1
+            ],
+            "verificationStatus": "PASS",
+            "verificationCode": "1000",
+            "validationDetails": {
+              "submitterName": {
+                "extracted": "John",
+                "submitted": "John",
+                "field_match_status": "PASS"
+              },
+              "dependentName": {
+                "extracted": "Jane",
+                "DEP-001": {
+                  "submitted": "Jane",
+                  "field_match_status": "PASS"
+                }
+              },
+              "marriageDatePresent": {
+                "extracted": "2010-06-15",
+                "reasoning": "The ceremony date is fully visible in the marriage section of the certificate.",
+                "field_match_status": "PASS"
+              },
+              "officiantSigned": {
+                "extracted": "yes",
+                "reasoning": "A qualifying officiant signature is clearly visible in the completed marriage section.",
+                "field_match_status": "PASS"
+              }
+            },
+            "comment": "All standardized checks passed for MARRIAGE_CERTIFICATE."
+          }
+        ]
+      }
+    }
+  ]
+},
+
+"IMC": {
+  "docList": [
+    {
+      "uploadedDocument": {
+        "documentId": "DOC-004",
+        "fileName": "marriage_certificate_fail.pdf",
+        "fileRef": {
+          "fileId": "marriage_certificate_fail"
+        },
+        "metadata": {
+          "mimeType": "application/pdf",
+          "sizeBytes": 493568
+        },
+        "uploadTime": {
+          "asOf": "2026-08-12T10:15:00-07:00",
+          "timezone": "Pacific Daylight Time"
+        }
+      },
+      "result": {
+        "classifications": [
+          {
+            "documentType": "MARRIAGE_CERTIFICATE",
+            "reasoning": "Marriage license showing both parties but no completed ceremony date and no qualifying officiant signature in the completed marriage section.",
+            "matchedDependent": "DEP-001",
+            "pageRange": [
+              1
+            ],
+            "verificationStatus": "FAIL",
+            "verificationCode": "2000",
+            "validationDetails": {
+              "submitterName": {
+                "extracted": "John",
+                "submitted": "John",
+                "field_match_status": "PASS"
+              },
+              "dependentName": {
+                "extracted": "Jane",
+                "DEP-001": {
+                  "submitted": "Jane",
+                  "field_match_status": "PASS"
+                }
+              },
+              "marriageDatePresent": {
+                "extracted": null,
+                "reasoning": "Only the license issuance information is visible; the completed ceremony date is blank.",
+                "field_match_status": "FAIL"
+              },
+              "officiantSigned": {
+                "extracted": "no",
+                "reasoning": "The completed marriage section is visible and unsigned; only issuance-side signatures are present.",
+                "field_match_status": "FAIL"
+              }
+            },
+            "comment": "Standardized verification failed for MARRIAGE_CERTIFICATE because marriageDatePresent, officiantSigned did not match."
+          }
+        ]
+      }
+    }
+  ]
+},
+
+"SMC": {
+  "docList": [
+    {
+      "uploadedDocument": {
+        "documentId": "DOC-005",
+        "fileName": "state_issued_marriage_certificate_pass.pdf",
+        "fileRef": {
+          "fileId": "state_issued_marriage_certificate_pass"
+        },
+        "metadata": {
+          "mimeType": "application/pdf",
+          "sizeBytes": 501760
+        },
+        "uploadTime": {
+          "asOf": "2026-08-12T10:20:00-07:00",
+          "timezone": "Pacific Daylight Time"
+        }
+      },
+      "result": {
+        "classifications": [
+          {
+            "documentType": "STATE_ISSUED_MARRIAGE_CERTIFICATE",
+            "reasoning": "County-issued marriage certificate showing both parties, ceremony date, officiant signature, and government issuance markings.",
+            "matchedDependent": "DEP-001",
+            "pageRange": [
+              1
+            ],
+            "verificationStatus": "PASS",
+            "verificationCode": "1000",
+            "validationDetails": {
+              "submitterName": {
+                "extracted": "John",
+                "submitted": "John",
+                "field_match_status": "PASS"
+              },
+              "dependentName": {
+                "extracted": "Jane",
+                "DEP-001": {
+                  "submitted": "Jane",
+                  "field_match_status": "PASS"
+                }
+              },
+              "marriageDatePresent": {
+                "extracted": "2010-06-15",
+                "reasoning": "The certificate clearly shows the completed ceremony date in the solemnization section.",
+                "field_match_status": "PASS"
+              },
+              "officiantSigned": {
+                "extracted": "yes",
+                "reasoning": "The officiant signature and county certification are both clearly visible.",
+                "field_match_status": "PASS"
+              }
+            },
+            "comment": "All standardized checks passed for STATE_ISSUED_MARRIAGE_CERTIFICATE."
+          }
+        ]
+      }
+    }
+  ]
+},
+
+"1040": {
+  "docList": [
+    {
+      "uploadedDocument": {
+        "documentId": "DOC-006",
+        "fileName": "tax_return_1040_mfj_pass.pdf",
+        "fileRef": {
+          "fileId": "tax_return_1040_mfj_pass"
+        },
+        "metadata": {
+          "mimeType": "application/pdf",
+          "sizeBytes": 786432
+        },
+        "uploadTime": {
+          "asOf": "2026-08-12T10:25:00-07:00",
+          "timezone": "Pacific Daylight Time"
+        }
+      },
+      "result": {
+        "classifications": [
+          {
+            "documentType": "TAX_RETURN_1040",
+            "reasoning": "Official IRS Form 1040 showing tax year, married filing jointly status, and both filer name fields.",
+            "matchedDependent": "DEP-001",
+            "pageRange": [
+              1
+            ],
+            "verificationStatus": "PASS",
+            "verificationCode": "1000",
+            "validationDetails": {
+              "filingStatus": {
+                "extracted": "MFJ",
+                "field_match_status": "PASS"
+              },
+              "taxYear": {
+                "extracted": "2025",
+                "field_match_status": "PASS"
+              },
+              "primaryFilerFirstName": {
+                "extracted": "John",
+                "comparisons": {
+                  "submitter": {
+                    "submitted": "John",
+                    "field_match_status": "PASS"
+                  },
+                  "DEP-001": {
+                    "submitted": "Jane",
+                    "field_match_status": "FAIL"
+                  }
+                },
+                "matchedAgainst": "submitter",
+                "field_match_status": "PASS"
+              },
+              "primaryFilerLastName": {
+                "extracted": "Smith",
+                "comparisons": {
+                  "submitter": {
+                    "submitted": "Smith",
+                    "field_match_status": "PASS"
+                  },
+                  "DEP-001": {
+                    "submitted": "Smith",
+                    "field_match_status": "PASS"
+                  }
+                },
+                "matchedAgainst": "submitter",
+                "field_match_status": "PASS"
+              },
+              "spouseFieldFirstName": {
+                "extracted": "Jane",
+                "comparisons": {
+                  "submitter": {
+                    "submitted": "John",
+                    "field_match_status": "FAIL"
+                  },
+                  "DEP-001": {
+                    "submitted": "Jane",
+                    "field_match_status": "PASS"
+                  }
+                },
+                "matchedAgainst": "DEP-001",
+                "field_match_status": "PASS"
+              },
+              "spouseFieldLastName": {
+                "extracted": "Smith",
+                "comparisons": {
+                  "submitter": {
+                    "submitted": "Smith",
+                    "field_match_status": "PASS"
+                  },
+                  "DEP-001": {
+                    "submitted": "Smith",
+                    "field_match_status": "PASS"
+                  }
+                },
+                "matchedAgainst": "DEP-001",
+                "field_match_status": "PASS"
+              }
+            },
+            "comment": "All standardized checks passed for TAX_RETURN_1040."
+          }
+        ]
+      }
+    }
+  ]
+},
+
+"ITAX": {
+  "docList": [
+    {
+      "uploadedDocument": {
+        "documentId": "DOC-007",
+        "fileName": "tax_return_1040_mfs_fail.pdf",
+        "fileRef": {
+          "fileId": "tax_return_1040_mfs_fail"
+        },
+        "metadata": {
+          "mimeType": "application/pdf",
+          "sizeBytes": 792576
+        },
+        "uploadTime": {
+          "asOf": "2026-08-12T10:30:00-07:00",
+          "timezone": "Pacific Daylight Time"
+        }
+      },
+      "result": {
+        "classifications": [
+          {
+            "documentType": "TAX_RETURN_1040",
+            "reasoning": "Official IRS Form 1040 showing married filing separately status and filer name fields, but the spouse field does not match the payload spouse.",
+            "matchedDependent": "DEP-001",
+            "pageRange": [
+              1
+            ],
+            "verificationStatus": "FAIL",
+            "verificationCode": "2000",
+            "validationDetails": {
+              "filingStatus": {
+                "extracted": "MFS",
+                "field_match_status": "PASS"
+              },
+              "taxYear": {
+                "extracted": "2025",
+                "field_match_status": "PASS"
+              },
+              "primaryFilerFirstName": {
+                "extracted": "John",
+                "comparisons": {
+                  "submitter": {
+                    "submitted": "John",
+                    "field_match_status": "PASS"
+                  },
+                  "DEP-001": {
+                    "submitted": "Jane",
+                    "field_match_status": "FAIL"
+                  }
+                },
+                "matchedAgainst": "submitter",
+                "field_match_status": "PASS"
+              },
+              "primaryFilerLastName": {
+                "extracted": "Smith",
+                "comparisons": {
+                  "submitter": {
+                    "submitted": "Smith",
+                    "field_match_status": "PASS"
+                  },
+                  "DEP-001": {
+                    "submitted": "Smith",
+                    "field_match_status": "PASS"
+                  }
+                },
+                "matchedAgainst": "submitter",
+                "field_match_status": "PASS"
+              },
+              "spouseFieldFirstName": {
+                "extracted": "Mary",
+                "comparisons": {
+                  "submitter": {
+                    "submitted": "John",
+                    "field_match_status": "FAIL"
+                  },
+                  "DEP-001": {
+                    "submitted": "Jane",
+                    "field_match_status": "FAIL"
+                  }
+                },
+                "matchedAgainst": null,
+                "field_match_status": "FAIL"
+              },
+              "spouseFieldLastName": {
+                "extracted": "Smith",
+                "comparisons": {
+                  "submitter": {
+                    "submitted": "Smith",
+                    "field_match_status": "PASS"
+                  },
+                  "DEP-001": {
+                    "submitted": "Smith",
+                    "field_match_status": "PASS"
+                  }
+                },
+                "matchedAgainst": "DEP-001",
+                "field_match_status": "PASS"
+              }
+            },
+            "comment": "Standardized verification failed for TAX_RETURN_1040 because spouseFieldFirstName did not match."
+          }
+        ]
+      }
+    }
+  ]
+},
+
+"SP1040": {
+  "docList": [
+    {
+      "uploadedDocument": {
+        "documentId": "DOC-008",
+        "fileName": "tax_return_1040_hoh_pass.pdf",
+        "fileRef": {
+          "fileId": "tax_return_1040_hoh_pass"
+        },
+        "metadata": {
+          "mimeType": "application/pdf",
+          "sizeBytes": 798720
+        },
+        "uploadTime": {
+          "asOf": "2026-08-12T10:35:00-07:00",
+          "timezone": "Pacific Daylight Time"
+        }
+      },
+      "result": {
+        "classifications": [
+          {
+            "documentType": "TAX_RETURN_1040",
+            "reasoning": "Official IRS Form 1040 showing head of household status and primary filer matching the spouse dependent.",
+            "matchedDependent": "DEP-001",
+            "pageRange": [
+              1,
+              2
+            ],
+            "verificationStatus": "PASS",
+            "verificationCode": "1000",
+            "validationDetails": {
+              "filingStatus": {
+                "extracted": "HOH",
+                "field_match_status": "PASS"
+              },
+              "taxYear": {
+                "extracted": "2025",
+                "field_match_status": "PASS"
+              },
+              "primaryFilerFirstName": {
+                "extracted": "Jane",
+                "comparisons": {
+                  "submitter": {
+                    "submitted": "John",
+                    "field_match_status": "FAIL"
+                  },
+                  "DEP-001": {
+                    "submitted": "Jane",
+                    "field_match_status": "PASS"
+                  }
+                },
+                "matchedAgainst": "DEP-001",
+                "field_match_status": "PASS"
+              },
+              "primaryFilerLastName": {
+                "extracted": "Smith",
+                "comparisons": {
+                  "submitter": {
+                    "submitted": "Smith",
+                    "field_match_status": "PASS"
+                  },
+                  "DEP-001": {
+                    "submitted": "Smith",
+                    "field_match_status": "PASS"
+                  }
+                },
+                "matchedAgainst": "DEP-001",
+                "field_match_status": "PASS"
+              },
+              "spouseFieldFirstName": {
+                "extracted": "John",
+                "comparisons": {},
+                "matchedAgainst": null,
+                "field_match_status": "FAIL"
+              },
+              "spouseFieldLastName": {
+                "extracted": "Smith",
+                "comparisons": {},
+                "matchedAgainst": null,
+                "field_match_status": "FAIL"
+              }
+            },
+            "comment": "All standardized checks passed for TAX_RETURN_1040."
+          }
+        ]
+      }
+    }
+  ]
+},
+
+"Other": {
+  "docList": [
+    {
+      "uploadedDocument": {
+        "documentId": "DOC-009",
+        "fileName": "unsupported_document.pdf",
+        "fileRef": {
+          "fileId": "unsupported_document"
+        },
+        "metadata": {
+          "mimeType": "application/pdf",
+          "sizeBytes": 245760
+        },
+        "uploadTime": {
+          "asOf": "2026-08-12T10:40:00-07:00",
+          "timezone": "Pacific Daylight Time"
+        }
+      },
+      "result": {
+        "classifications": [
+          {
+            "documentType": "OTHER",
+            "reasoning": "Utility bill and cover sheet pages that do not match any supported validation document type.",
+            "matchedDependent": null,
+            "pageRange": [
+              1,
+              2
+            ],
+            "verificationStatus": "FAIL",
+            "verificationCode": "4000",
+            "validationDetails": {},
+            "comment": "Document is unsupported or unrelated for standardized validation."
+          }
+        ]
+      }
+    }
+  ]
+}
